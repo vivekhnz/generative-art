@@ -17,7 +17,19 @@
   },
   "homepage": "https://github.com/vivekhnz/generative-art#readme",
   "devDependencies": {
+    "browserify": "^14.1.0",
+    "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
-    "gulp-gh-pages": "^0.5.4"
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.1",
+    "tsify": "^3.0.1",
+    "typescript": "^2.2.1",
+    "uglifyify": "^3.0.4",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "sketch-js": "^1.1.3"
   }
 }

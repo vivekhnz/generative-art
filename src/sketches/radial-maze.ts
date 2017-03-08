@@ -1,3 +1,5 @@
+import * as Sketch from 'sketch-js';
+
 Sketch.create({
     container: document.getElementById('container'),
 
