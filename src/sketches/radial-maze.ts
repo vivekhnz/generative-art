@@ -1,7 +1,7 @@
-import * as Sketch from 'sketch-js';
+import * as Sketch from '../sketch-context';
 
-Sketch.create({
-    container: document.getElementById('container'),
+Sketch.create(class extends Sketch.Canvas {
+    container = document.getElementById('container');
 
     draw() {
         this.fillStyle = '#363D3D';

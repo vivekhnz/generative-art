@@ -13,12 +13,16 @@ let github = require('gulp-gh-pages');
 
 // config
 let config = {
+    copy: [
+        './src/index.html',
+        './src/styles.css'
+    ],
     sketches: './src/sketches/**/*.ts'
 };
 
 // copy non-compiled assets
 gulp.task('copy', () => {
-    return gulp.src(['./src/**/*', `!${config.sketches}`])
+    return gulp.src(config.copy)
         .pipe(gulp.dest('dist'));
 });
 
