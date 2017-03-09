@@ -31,6 +31,12 @@ abstract class Context {
     millis: number;
     now: number;
     dt: number;
+    
+    // instance methods
+    start(): void { }
+    stop(): void { }
+    toggle(): void { }
+    destroy(): void { }
 }
 
 export class Canvas extends Context {
@@ -39,6 +45,9 @@ export class Canvas extends Context {
         super();
         this.type = 'canvas';
     }
+
+    // context instance methods
+    clear(): void { }
 
     // canvas properties
     canvas: HTMLCanvasElement;
@@ -925,9 +934,11 @@ export function create(sketchClass: { new (): Context }) {
     
     // copy props from sketch class
     const sketch: Context = new sketchClass();
+    const proto = Object.getPrototypeOf(
+        Object.getPrototypeOf(sketch));
     for (const prop in sketch) {
-        if (OVERRIDABLE_METHODS.indexOf(prop) >= 0
-            || sketch.hasOwnProperty(prop)) {
+        // only copy properties that were not inherited
+        if (!proto.hasOwnProperty(prop)) {
             options[prop] = sketch[prop];
         }
     }
